@@ -6,9 +6,9 @@ https://github.com/vektor-inc/vektor-wp-libraries
 にあります。修正の際は上記リポジトリのデータを修正してください。
 */
 
-namespace Vektor\ExUnit\Package\Cta;
+// namespace Vektor\ExUnit\Package\Cta;
 
-if ( ! class_exists( 'Vektor\ExUnit\Package\Cta\Vk_Call_To_Action' ) )
+if ( ! class_exists( 'Vk_Call_To_Action' ) )
 {
 
 class Vk_Call_To_Action
@@ -30,7 +30,7 @@ class Vk_Call_To_Action
 	}
 
 	public static function widget_init() {
-	    return register_widget("Vektor\ExUnit\Package\Cta\Widget_CTA");
+	    return register_widget( 'Widget_CTA' );
 	}
 
 	public static function set_content_loopend($query )
@@ -124,6 +124,9 @@ class Vk_Call_To_Action
 
 
 	public static function render_meta_box_cta() {
+
+		global $vk_call_to_action_textdomain;
+
 		echo '<input type="hidden" name="_nonce_vkExUnit_custom_cta" id="_nonce_vkExUnit__custom_field_metaKeyword" value="'.wp_create_nonce( plugin_basename( __FILE__ ) ).'" />';
 		$imgid = get_post_meta( get_the_id(), 'vkExUnit_cta_img', true );
 		$cta_image = wp_get_attachment_image_src( $imgid, 'large' );
@@ -428,7 +431,11 @@ if ( $target_blank == "window_self") {
 		// Ligthning Advanced Unit のウィジェットだと...思う...
 		if ( self::is_contentsarea_posts_widget() ) { return $content; }
 		// 抜粋の場合
-		if ( vkExUnit_is_excerpt() ) { return $content; }
+		//
+		if ( vkExUnit_is_excerpt() ) {
+
+			return $content;
+		}
 		// 上記以外の場合に出力
 		$content .= self::render_cta_content( self::is_cta_id() );
 		return $content;

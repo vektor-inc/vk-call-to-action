@@ -3,7 +3,7 @@
 /*-------------------------------------------*/
 /*  Load modules
 /*-------------------------------------------*/
-if ( ! class_exists( 'Vektor\ExUnit\Package\Cta\Vk_Call_To_Action' ) )
+if ( ! class_exists( 'Vk_Call_To_Action' ) )
 {
 	require_once( 'vk-call-to-action-package/class-vk-call-to-action.php' );
 

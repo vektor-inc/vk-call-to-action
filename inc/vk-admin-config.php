@@ -58,5 +58,5 @@ function vk_cta_add_setting_pages() {
 /*	管理画面のメインエリアを出力
 /*-------------------------------------------*/
 function vk_cta_the_admin_body(){
-	Vektor\ExUnit\Package\Cta\Vk_Call_To_Action::render_configPage();
+	Vk_Call_To_Action::render_configPage();
 }
