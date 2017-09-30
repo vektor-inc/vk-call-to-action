@@ -1,5 +1,15 @@
 <?php
 
+/*
+このファイルの元ファイルは
+https://github.com/vektor-inc/vektor-wp-libraries
+にあります。修正の際は上記リポジトリのデータを修正してください。
+*/
+
+/**
+ * ExUnit固有の関数だが、ExUnitの機能を複製しているために独立化したプラグインにも使用される関数
+ */
+
 if ( ! function_exists( 'veu_content_filter_state' ) )
 {
 	function veu_content_filter_state(){

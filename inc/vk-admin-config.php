@@ -49,8 +49,17 @@ add_action( 'admin_menu', 'vk_cta_add_custom_setting' );
 function vk_cta_add_setting_pages() {
 	$get_page_title = __( 'VK Call To Action Setting', 'XXXX(text domain)' );
 	$get_logo_html = '';
-	$get_menu_html = '<li><a href="#XXXX_a">'.__( 'XXXX_A Setting', 'XXXX(text domain)' ).'</a></li>';
-	$get_menu_html .='<li><a href="#XXXX_b">'.__( 'XXXX_B Setting', 'XXXX(text domain)' ).'</a></li>';
+	$get_menu_html = '<li><a href="#vk_cta_call_to_action">'.__( 'Call To Action Setting', 'vk-call-to-action' ).'</a></li>';
+	if ( ! vk_cta_is_plugin_active( PLUGIN_PATH_EXUNIT ) ){
+		if ( get_locale() == 'ja' ){
+			$url = 'https://ex-unit.nagoya/ja/about';
+		} else {
+			$url = 'https://ex-unit.nagoya/about';
+		}
+
+		$get_menu_html .='<li><a href="'.$url.'" target="_blank">'.__( 'More powerfull functions', 'vk-call-to-action' ).'</a></li>';
+	}
+
 	Vk_Admin::admin_page_frame( $get_page_title, 'vk_cta_the_admin_body', $get_logo_html, $get_menu_html );
 }
 
@@ -58,5 +67,7 @@ function vk_cta_add_setting_pages() {
 /*	管理画面のメインエリアを出力
 /*-------------------------------------------*/
 function vk_cta_the_admin_body(){
+	echo '<div id="vk_cta_call_to_action">';
 	Vk_Call_To_Action::render_configPage();
+	echo '</div>';
 }
