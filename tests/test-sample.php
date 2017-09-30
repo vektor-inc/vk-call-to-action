@@ -15,7 +15,7 @@ class SampleTest extends WP_UnitTestCase {
 	 */
 	function test_sample() {
 		// Replace this with some actual testing code.
-		$this->assertEquals( true , vk_cta_is_exunit_cta_active() );
+		// $this->assertEquals( true , vk_cta_is_exunit_cta_active() );
 
 
 	}
