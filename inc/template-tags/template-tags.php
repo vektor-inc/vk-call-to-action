@@ -6,8 +6,6 @@ if ( ! function_exists( 'vk_is_excerpt' ) ){
 		if ( in_array( 'get_the_excerpt', (array) $wp_current_filter ) ) { return true; }
 		return false;
 	}
-	// old function
-	function vkExUnit_is_excerpt(){
-		return vk_is_excerpt();
-	}
 }
+
+require_once( 'template-tags-old.php' );

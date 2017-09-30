@@ -12,33 +12,23 @@ if ( ! function_exists( 'veu_content_filter_state' ) )
 
 if ( ! function_exists( 'veu_get_name' ) ){
 	function veu_get_name() {
-		$system_name = apply_filters( 'vkExUnit_get_name_custom','VK All in one Expansion Unit' );
+		$system_name = apply_filters( 'veu_get_name_custom','VK All in one Expansion Unit' );
 		return $system_name;
-	}
-	// old function
-	function vkExUnit_get_name() {
-		return veu_get_name();
 	}
 }
 
 if ( ! function_exists( 'veu_get_little_short_name' ) ){
 		function veu_get_little_short_name(){
-				$little_short_name = apply_filters( 'vkExUnit_get_little_short_name_custom','VK ExUnit' );
+				$little_short_name = apply_filters( 'veu_get_little_short_name_custom','VK ExUnit' );
 				return $little_short_name;
-		}
-		// old function
-		function vkExUnit_get_little_short_name(){
-				return veu_get_little_short_name();
 		}
 }
 
 if ( ! function_exists( 'veu_get_short_name' ) ){
 	function veu_get_short_name(){
-	 $short_name = apply_filters( 'vkExUnit_get_short_name_custom','VK' );
+	 $short_name = apply_filters( 'veu_get_short_name_custom','VK' );
 	 return $short_name;
 	}
-	// old function
-	function vkExUnit_get_short_name(){
-		return veu_get_short_name();
-	}
 }
+
+require_once( 'template-tags-veu-old.php' );
