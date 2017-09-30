@@ -44,7 +44,7 @@ function vk_cta_is_exunit_cta_active()
 	}
 }
 
-if ( vk_cta_is_exunit_cta_active() ){
+if ( ! vk_cta_is_exunit_cta_active() ){
 	function vk_cta_scripts(){
 	  wp_enqueue_style( 'vk-cta-css', VK_CTA_URL.'/css/vk-call-to-action.css', array(), VK_CTA_VERSION );
 	}
