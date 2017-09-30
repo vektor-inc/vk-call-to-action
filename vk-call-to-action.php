@@ -22,36 +22,16 @@
  * If Active CTA by ExUnit
  */
 
-function vk_cta_is_plugin_active( $plugin_path = '' )
-{
-	if ( function_exists('is_plugin_active') ) {
-			return is_plugin_active( $plugin_path );
-	} else {
-			return in_array(
-					$plugin_path,
-					get_option('active_plugins')
-			);
-	}
-}
+ require_once( 'inc/template-tags/template-tags.php' );
+ require_once( 'inc/template-tags/template-tags-veu.php' );
 
-function vk_cta_is_exunit_cta_active()
-{
-	if ( vk_cta_is_plugin_active( PLUGIN_PATH_EXUNIT ) ){
-		$veu_common_options = get_option( 'vkExUnit_common_options' );
-		if ( isset( $veu_common_options['active_call_to_action'] ) && $veu_common_options['active_call_to_action'] ){
-			return true;
-		}
-	}
-}
-
-if ( ! vk_cta_is_exunit_cta_active() ){
+if ( ! veu_is_cta_active() ){
 	function vk_cta_scripts(){
 	  wp_enqueue_style( 'vk-cta-css', VK_CTA_URL.'/css/vk-call-to-action.css', array(), VK_CTA_VERSION );
+		wp_enqueue_style( 'font-awesome', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css', array(), '4.7.0' );
 	}
 	add_action( 'wp_enqueue_scripts', 'vk_cta_scripts' );
 }
 
-require_once( 'inc/template-tags/template-tags.php' );
-require_once( 'inc/template-tags/template-tags-veu.php' );
 require_once( 'inc/call-to-action-config.php');
 require_once( 'inc/vk-admin-config.php' );

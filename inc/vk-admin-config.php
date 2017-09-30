@@ -47,7 +47,7 @@ add_action( 'admin_menu', 'vk_cta_add_custom_setting' );
 /*	Setting Page
 /*-------------------------------------------*/
 function vk_cta_add_setting_pages() {
-	$get_page_title = __( 'VK Call To Action Setting', 'XXXX(text domain)' );
+	$get_page_title = __( 'VK Call To Action Setting', 'vk-call-to-action' );
 	$get_logo_html = '';
 	$get_menu_html = '<li><a href="#vk_cta_call_to_action">'.__( 'Call To Action Setting', 'vk-call-to-action' ).'</a></li>';
 	if ( ! vk_cta_is_plugin_active( PLUGIN_PATH_EXUNIT ) ){
